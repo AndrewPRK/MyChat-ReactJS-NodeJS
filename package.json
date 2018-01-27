@@ -1,5 +1,5 @@
 {
-  "name": "react",
+  "name": "my-chat",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,9 +11,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/romabelka/js_ru_08_06_17"
+    "url": "git+https://github.com/AndrewPRK"
   },
-  "author": "",
+  "author": "Andrew Burlaka",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.13.2",
@@ -34,16 +34,13 @@
     "moment": "^2.19.1",
     "prop-types": "^15.6.0",
     "react": "^15.5.0",
-    "react-day-picker": "^6.2.1",
     "react-dom": "^15.5.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.8",
-    "react-select": "^1.0.0-rc.5",
     "react-transition-group": "^1.2.1",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "reselect": "^3.0.1",
     "webpack": "^2.7.0"
   }
 }
