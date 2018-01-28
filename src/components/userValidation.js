@@ -1,6 +1,6 @@
 import React from "react"
 import {connect} from "react-redux"
-import {addNewUser} from "./AC"
+import {addNewUser} from "../AC"
 
 class UserValidation extends React.Component {
     constructor(props)

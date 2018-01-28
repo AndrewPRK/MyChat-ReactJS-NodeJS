@@ -1,6 +1,6 @@
 import React from "react"
 import {connect} from "react-redux"
-import {sendMessage} from "./AC"
+import {sendMessage} from "../AC"
 
  class MessageTextArea extends React.Component {
     constructor(props){
