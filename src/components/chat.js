@@ -1,8 +1,8 @@
 import React from "react"
 import MessagesList from "./MessagesList"
-import PeopleList from "./peopleList"
+import PeopleList from "./PeopleList"
 import {connect} from "react-redux"
-import UserValidation from "./userValidation"
+import UserValidation from "./UserValidation"
 
 class Chat extends React.Component{
     

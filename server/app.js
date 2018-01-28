@@ -6,27 +6,26 @@ var app = express();
 var server = http.createServer(app);
 var WebSocketServer = require('ws').Server;
 var wss = new WebSocketServer({server : server});
-var colors = [ 'red', 'green', 'blue', 'magenta', 'purple', 'plum', 'orange' ];
+var colors = [ 'darkcyan', 'green', 'blue', '	silver', 'purple', 'plum', 'orange' ];
 colors.sort(function(a,b) { return Math.random() > 0.5; } );
 var clients = [];
 
-wss.on('connection', function(ws){
+wss.on('connection', function(ws) {
 clients.push(Object.assign(ws, {userId:Date.now()}));
-console.log(clients);
 var userName = false;
 var userColor = false;
   ws.on('message', function(msg){
-    if(!userName){
-      const pmsg= JSON.parse(msg);
-        userName=pmsg.userName 
+    if(!userName) {
+      const pmsg = JSON.parse(msg);
+        userName = pmsg.userName 
         userColor = colors.shift();
-        clients.forEach((item,index)=>{
-          if (item.userId==ws.userId)
+        clients.forEach((item,index) => {
+          if (item.userId == ws.userId)
           {
-            Object.assign(clients[index],{userName:userName, avatar:pmsg.avatar})
+            Object.assign(clients[index],{userName: userName, avatar: pmsg.avatar})
           }
          });
-        let userArray=clients.map((user)=>{
+        let userArray = clients.map((user)=>{
           return {userName:user.userName, userId:user.userId,userAvatar:user.avatar}
         });
         const newArray=userArray.filter((user)=>{return user.userName});
@@ -36,9 +35,7 @@ var userColor = false;
           clients[i].send(JSON.stringify({ type:'connected_new_user', userName:ws.userName, userId:ws.userId, userAvatar:ws.avatar }));
            } 
         } 
-        console.log(userName + ' login');
     }else{
-        console.log(userName + ' say: ' + msg);
         var obj = {
           time: (new Date()).getTime(),
           text: msg,
@@ -79,10 +76,6 @@ app.configure(function(){
 
 app.configure('development', function(){
   app.use(express.errorHandler());
-});
-
-app.get('/', function(req, res){
-res.sendfile('views/chat.html');
 });
 
 server.listen(app.get('port'), function(){

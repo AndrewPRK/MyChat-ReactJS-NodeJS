@@ -1,5 +1,5 @@
 import React from "react"
-import Search from "./search"
+import Search from "./Search"
 import UserItem from "./UserItem"
 
 export default class PeopleList extends React.Component {
