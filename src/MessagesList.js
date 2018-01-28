@@ -4,6 +4,15 @@ import MessageItem from "./MessageItem"
 import MessageTextArea from "./MessageTextArea"
  class MessagesList extends React.Component 
 {
+    constructor(props)
+    {
+        super(props);
+        this.chatWrapper=null;
+        this.chatUl=null;
+    }
+    componentDidUpdate(){
+        this.chatWrapper.scrollTop=this.chatUl.scrollHeight;
+    }
     render()
     {
         return (
@@ -14,10 +23,8 @@ import MessageTextArea from "./MessageTextArea"
                             <div className="chat-with">{this.props.userName}</div>
                         </div>
                         <i className="fa fa-star"></i>
-                    </div>
-                    <div className="chat-history">
-                        {this.getMessage()}
-                    </div>
+                    </div> 
+                    {this.getMessage()}
                     <MessageTextArea/>
             </div>
         );
@@ -30,9 +37,11 @@ import MessageTextArea from "./MessageTextArea"
             );
         })
         return (
-            <ul>
-                {messageArr}
-            </ul>
+            <div className="chat-history" ref={chatWrapper=>this.chatWrapper=chatWrapper}>
+                <ul ref={chatUl=>this.chatUl=chatUl}>
+                    {messageArr}
+                </ul>
+            </div>
         )
     }
 
