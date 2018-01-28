@@ -1,8 +1,10 @@
 import {combineReducers} from "redux"
 import userReducer from "./users"
 import messagesReduser from "./messages"
-const reducers=combineReducers({
+
+const reducers = combineReducers({
     users : userReducer,
-    messages: messagesReduser
-}); 
+    messages : messagesReduser
+});
+
 export default reducers;
