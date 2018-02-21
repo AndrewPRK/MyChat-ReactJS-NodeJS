@@ -1,7 +1,7 @@
 import {createStore, applyMiddleware} from "redux"
 import reducers from "../reducers"
-import ws from '../middlware/ws'
-import logger from '../middlware/logger'
+import ws from '../middleware/ws'
+import logger from '../middleware/logger'
 import thunk from "redux-thunk"
 
 const enhancer = applyMiddleware(thunk, logger,ws);
